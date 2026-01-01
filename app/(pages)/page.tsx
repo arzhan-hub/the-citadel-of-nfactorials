@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { CharacterList } from '@/components/features/characters/CharacterList';
 import { CharacterSearch } from '@/components/features/characters/CharacterSearch';
 import { CharacterCardSkeleton } from '@/components/features/characters/CharacterCardSkeleton';
+import { TruthTortoise } from '@/components/features/ai/TruthTortoise';
 import { Button } from '@/components/ui/Button';
 import { useCharacters } from '@/lib/hooks/useCharacters';
 
@@ -60,6 +61,7 @@ export default function CharactersPage() {
           </div>
         ) : null}
       </section>
+      <TruthTortoise context="General questions about Rick and Morty characters and lore." />
     </main>
   );
 }

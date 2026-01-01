@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { CharacterDetail, type CharacterDetailData } from '@/components/features/characters/CharacterDetail';
 import { CharacterDetailSkeleton } from '@/components/features/characters/CharacterDetailSkeleton';
+import { TruthTortoise } from '@/components/features/ai/TruthTortoise';
 
 export default function CharacterPage() {
   const { id } = useParams();
@@ -28,6 +29,10 @@ export default function CharacterPage() {
     if (id) fetchCharacter();
   }, [id]);
 
+  const context = character
+    ? `Character: ${character.name}. Species: ${character.species}. Status: ${character.status}. Gender: ${character.gender}. Origin: ${character.origin.name}. Location: ${character.location.name}. Episodes: ${character.episode.length}.`
+    : undefined;
+
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-12">
       <Link href="/">
@@ -43,6 +48,7 @@ export default function CharacterPage() {
           Character not found.
         </div>
       )}
+      <TruthTortoise context={context} />
     </main>
   );
 }
