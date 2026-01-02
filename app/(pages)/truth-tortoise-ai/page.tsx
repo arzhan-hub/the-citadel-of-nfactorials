@@ -71,25 +71,25 @@ export default function TruthTortoiseAIPage() {
   };
 
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-12">
+    <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-8 sm:px-6 sm:py-12">
       <section className="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
         <div className="order-2 p-0 md:order-1">
           <img
             src="/truth-tortoise-hero.png"
             alt="Truth Tortoise"
-            className="h-80 w-full object-contain"
+            className="h-64 w-full object-contain sm:h-80"
           />
         </div>
         <div className="order-1 space-y-4 md:order-2">
           <p className="text-sm uppercase tracking-[0.2em] text-[var(--accent)]">{t('truth.title')}</p>
-          <h1 className="text-4xl font-bold text-[var(--foreground)] md:text-5xl">
+          <h1 className="text-3xl font-bold text-[var(--foreground)] sm:text-4xl md:text-5xl">
             {t('truth.headline')}
           </h1>
-          <p className="text-base text-[var(--muted)]">{t('truth.description')}</p>
+          <p className="text-sm text-[var(--muted)] sm:text-base">{t('truth.description')}</p>
         </div>
       </section>
 
-      <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-xl">
+      <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-xl sm:p-6">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3 text-sm text-[var(--muted)]">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--accent)]/20">

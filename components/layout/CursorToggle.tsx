@@ -28,7 +28,7 @@ export function CursorToggle() {
   };
 
   return (
-    <Button variant="pill" onClick={toggle}>
+    <Button variant="pill" onClick={toggle} className="px-4 py-2 text-xs sm:px-5 sm:text-sm">
       {state === 'on' ? t('cursor.on') : t('cursor.off')}
     </Button>
   );

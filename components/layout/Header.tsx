@@ -18,21 +18,21 @@ export function Header() {
 
   return (
     <header className="border-b border-[var(--border)] bg-[var(--surface)]/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-6">
+      <div className="mx-auto flex max-w-6xl flex-col items-start gap-5 px-4 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6 sm:py-6">
         <PortalLink
           href="/"
           data-portal-pulse="true"
-          className="flex items-center gap-4 text-xl font-bold tracking-wide text-[var(--foreground)]"
+          className="flex items-center gap-3 text-lg font-bold tracking-wide text-[var(--foreground)] sm:gap-4 sm:text-xl"
         >
-          <img src="/citadel.svg" alt="Citadel logo" className="h-20 w-20 object-contain" />
+          <img src="/citadel.svg" alt="Citadel logo" className="h-14 w-14 object-contain sm:h-20 sm:w-20" />
           <span className="flex flex-col leading-[1.1]">
-            <span className="text-base uppercase tracking-[0.2em] text-[var(--muted)]">
+            <span className="text-xs uppercase tracking-[0.2em] text-[var(--muted)] sm:text-base">
               {t('brand.citadelOf')}
             </span>
-            <span className="text-2xl">{t('brand.nFactorials')}</span>
+            <span className="text-xl sm:text-2xl">{t('brand.nFactorials')}</span>
           </span>
         </PortalLink>
-        <nav className="flex flex-wrap items-center gap-5 text-base font-semibold text-[var(--muted)]">
+        <nav className="flex w-full flex-nowrap items-center gap-4 overflow-x-auto text-sm font-semibold text-[var(--muted)] sm:w-auto sm:flex-wrap sm:gap-5 sm:text-base">
           {navItems.map((item) => {
             const label = t(item.labelKey);
             const isTortoise = item.labelKey === 'nav.truthTortoise';
@@ -41,7 +41,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 data-portal-pulse="true"
-                className={`transition-colors hover:text-[var(--foreground)] ${
+                className={`whitespace-nowrap transition-colors hover:text-[var(--foreground)] ${
                   isTortoise ? 'text-[var(--accent)]' : ''
                 }`}
               >
@@ -50,8 +50,10 @@ export function Header() {
             );
           })}
         </nav>
-        <div className="flex items-center gap-3">
-          <CursorToggle />
+        <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto sm:gap-3">
+          <div className="hidden sm:block">
+            <CursorToggle />
+          </div>
           <LanguageToggle />
           <ThemeToggle />
         </div>

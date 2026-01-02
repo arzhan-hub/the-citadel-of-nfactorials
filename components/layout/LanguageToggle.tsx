@@ -28,7 +28,7 @@ export function LanguageToggle() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="inline-flex min-w-[120px] items-center justify-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-5 py-2 text-sm font-semibold text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+        className="inline-flex min-w-[110px] items-center justify-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-semibold text-[var(--muted)] transition-colors hover:text-[var(--foreground)] sm:min-w-[130px] sm:px-5 sm:text-sm"
         aria-haspopup="listbox"
         aria-expanded={open}
       >
