@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { EpisodeDetail, type EpisodeDetailData } from '@/components/features/episodes/EpisodeDetail';
 import { EpisodeDetailSkeleton } from '@/components/features/episodes/EpisodeDetailSkeleton';
+import { TruthTortoise } from '@/components/features/ai/TruthTortoise';
 import episodeDescriptions from '@/lib/data/episode-descriptions.json';
 import { useI18n } from '@/lib/i18n/I18nProvider';
 import { PortalLink } from '@/components/ui/PortalLink';
@@ -35,6 +36,10 @@ export default function EpisodePage() {
     ? (episodeDescriptions as Record<string, { description?: string; source?: string }>)[episode.episode]
     : undefined;
 
+  const context = episode
+    ? `Episode: ${episode.name} (${episode.episode}). Air date: ${episode.air_date}. Characters: ${episode.characters.length}.`
+    : undefined;
+
   return (
     <main className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-12">
       <PortalLink href="/episodes">
@@ -54,6 +59,8 @@ export default function EpisodePage() {
           {t('episode.notFound')}
         </div>
       )}
+
+      <TruthTortoise context={context} />
     </main>
   );
 }

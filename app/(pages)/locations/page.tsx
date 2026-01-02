@@ -5,6 +5,7 @@ import { LocationList } from '@/components/features/locations/LocationList';
 import { LocationSearch } from '@/components/features/locations/LocationSearch';
 import { LocationCardSkeleton } from '@/components/features/locations/LocationCardSkeleton';
 import { Button } from '@/components/ui/Button';
+import { TruthTortoise } from '@/components/features/ai/TruthTortoise';
 import { useLocations } from '@/lib/hooks/useLocations';
 import { useI18n } from '@/lib/i18n/I18nProvider';
 
@@ -19,6 +20,8 @@ export default function LocationsPage() {
   useEffect(() => {
     setPage(1);
   }, [name, type, dimension]);
+
+  const context = `Locations page. Filters: name="${name || 'any'}", type="${type || 'any'}", dimension="${dimension || 'any'}". Page ${page} of ${totalPages}.`;
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-12">
@@ -69,6 +72,8 @@ export default function LocationsPage() {
           </div>
         ) : null}
       </section>
+
+      <TruthTortoise context={context} />
     </main>
   );
 }

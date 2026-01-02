@@ -5,6 +5,7 @@ import { EpisodeList } from '@/components/features/episodes/EpisodeList';
 import { EpisodeSearch } from '@/components/features/episodes/EpisodeSearch';
 import { EpisodeCardSkeleton } from '@/components/features/episodes/EpisodeCardSkeleton';
 import { Button } from '@/components/ui/Button';
+import { TruthTortoise } from '@/components/features/ai/TruthTortoise';
 import { useEpisodes } from '@/lib/hooks/useEpisodes';
 import { useI18n } from '@/lib/i18n/I18nProvider';
 
@@ -18,6 +19,8 @@ export default function EpisodesPage() {
   useEffect(() => {
     setPage(1);
   }, [name, episodeCode]);
+
+  const context = `Episodes page. Filters: name="${name || 'any'}", code="${episodeCode || 'any'}". Page ${page} of ${totalPages}.`;
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 py-12">
@@ -66,6 +69,8 @@ export default function EpisodesPage() {
           </div>
         ) : null}
       </section>
+
+      <TruthTortoise context={context} />
     </main>
   );
 }
